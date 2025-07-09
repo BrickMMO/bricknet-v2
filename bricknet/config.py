@@ -1,0 +1,6 @@
+# config.py
+DEFAULT_NAME = "MyBrickPi"
+DEFAULT_MANUFACTURER_ID = 0x0397
+DEFAULT_PATH_BASE = "/org/bluez/example/advertisement"
+DEFAULT_ADVERTISEMENT_INDEX = 0
+DEFAULT_ADAPTER_NAME = 'hci0'
