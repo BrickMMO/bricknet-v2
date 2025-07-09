@@ -1,0 +1,10 @@
+[project]
+name = "bricknet"
+version = "0.1.0"
+description = "Bluetooth LE tools for Raspberry Pi and LEGO Spike"
+authors = [{ name = "Your Name" }]
+dependencies = ["bleak"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
