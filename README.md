@@ -1,69 +1,22 @@
-# bricknet-v2
-A Python Bluetooth communication library for the LEGO Spike
+# BrickNet
 
+BrickNet is a Python library to simplify BlueTooth communication between a [Dexter BrickPi](https://www.dexterindustries.com/brickpi/), [LEGO&reg; Spike](https://www.lego.com/en-ca/product/lego-education-spike-prime-set-45678), and [LEGO&reg; EV3&trade;](https://www.lego.com/en-ca/product/lego-mindstorms-ev3-31313). 
 
-```python 
-from pybricks.hubs import InventorHub, ThisHub
+---
 
-from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor
-from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
-from pybricks.robotics import DriveBase
-from pybricks.tools import wait, StopWatch
+## Project Stack
 
-from urandom import randint
+This project uses [Python](https://www.python.org/) and [PyBricks](https://pybricks.com/).
 
-# from pybricks.iodevices import XboxController
+<img src="https://console.codeadam.ca/api/image/python" width="60"> <img src="https://console.codeadam.ca/api/image/pybricks" width="60"> 
 
-hub = InventorHub()
-hub = ThisHub(broadcast_channel=1)
+---
 
-colors = [Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE, Color.VIOLET, Color.MAGENTA]
-test = [
-    "Hello", 
-    "Canada", 
-    "Stars",
-    "123456789012345678901234"
-]
+## Repo Resources
 
-while True:
+- [BrickMMO](https://www.brickmmo.com/)
+- [PyBicks](https://pybricks.com/)
 
-    rand = randint(0, 3)
-
-    print("Broadcasting...")
-    print(test[rand])
-    hub.ble.broadcast(test[rand])
-
-    # hub.light.on(test[rand])
-
-    wait(2000)
-```
-
-```python
-from pybricks.hubs import EssentialHub, ThisHub
-
-from pybricks.pupdevices import Motor, ColorSensor, ColorLightMatrix
-from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
-from pybricks.robotics import DriveBase
-from pybricks.tools import wait, StopWatch
-
-id = 1
-
-hub = EssentialHub()
-hub = ThisHub(observe_channels=[id])
-
-# colors = [Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE, Color.VIOLET, Color.MAGENTA]
-
-while True:
-
-    print("Observing...")
-
-    data = hub.ble.observe(id)
-
-    if data is not None or True:
-        
-        print(data)
-        hub.light.on(Color.RED)
-
-    wait(2000)
-
-```
+<a href="https://brickmmo.com">
+<img src="https://cdn.brickmmo.com/images@1.0.0/brickmmo-logo-coloured-horizontal.png" width="300">
+</a>
