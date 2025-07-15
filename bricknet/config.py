@@ -1,4 +1,4 @@
-# config.py
+# bricknet/multi.py
 DEFAULT_NAME = "MyBrickPi"
 DEFAULT_MANUFACTURER_ID = 0x0397
 DEFAULT_PATH_BASE = "/org/bluez/example/advertisement"

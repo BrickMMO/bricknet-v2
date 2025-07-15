@@ -1,3 +1,5 @@
+# bricknet/scan.py
+
 import asyncio
 from bleak import BleakScanner
 
@@ -8,8 +10,7 @@ class Scan:
     def __init__(self, callback=None, adapter_name=None):
         self.callback = callback
         self.adapter_name = adapter_name or config.DEFAULT_ADAPTER_NAME
-        self.scanner = BleakScanner(detection_callback=self._detection_callback,
-                                    adapter=self.adapter_name)
+        self.scanner = BleakScanner(detection_callback=self._detection_callback, adapter=self.adapter_name)
 
     def _detection_callback(self, device, advertisement_data):
 
@@ -26,7 +27,9 @@ class Scan:
                     self.callback(device, advertisement_data, message)
 
     async def start(self):
+
         await self.scanner.start()
 
     async def stop(self):
+        
         await self.scanner.stop()

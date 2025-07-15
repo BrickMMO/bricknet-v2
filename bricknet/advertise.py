@@ -1,3 +1,5 @@
+# bricknet/advertise.py
+
 import dbus
 import dbus.mainloop.glib
 import dbus.service
@@ -5,9 +7,10 @@ from gi.repository import GLib
 
 from . import config
 
-
 class Advertise(dbus.service.Object):
+
     def __init__(self, channel: int, message: str):
+
         dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
         self.bus = dbus.SystemBus()
         self.loop = None
@@ -19,6 +22,7 @@ class Advertise(dbus.service.Object):
         super().__init__(self.bus, self.path)
 
     def _create_payload(self, channel, message):
+
         payload = bytes([
             channel,
             0,
@@ -28,9 +32,11 @@ class Advertise(dbus.service.Object):
         return [dbus.Byte(b) for b in payload]
 
     def get_path(self):
+
         return dbus.ObjectPath(self.path)
 
     def get_properties(self):
+
         return {
             'org.bluez.LEAdvertisement1': {
                 'Type': 'peripheral',
@@ -41,19 +47,20 @@ class Advertise(dbus.service.Object):
             }
         }
 
-    @dbus.service.method('org.freedesktop.DBus.Properties',
-                         in_signature='s',
-                         out_signature='a{sv}')
+    @dbus.service.method('org.freedesktop.DBus.Properties', in_signature='s', out_signature='a{sv}')
+
     def GetAll(self, interface):
+
         return self.get_properties()['org.bluez.LEAdvertisement1']
 
-    @dbus.service.method('org.bluez.LEAdvertisement1',
-                         in_signature='',
-                         out_signature='')
+    @dbus.service.method('org.bluez.LEAdvertisement1', in_signature='', out_signature='')
+
     def Release(self):
+
         print('Advertisement released')
 
     def start(self):
+
         adapter_path = f'/org/bluez/{config.DEFAULT_ADAPTER_NAME}'
         adapter = self.bus.get_object('org.bluez', adapter_path)
         adapter_props = dbus.Interface(adapter, 'org.freedesktop.DBus.Properties')
@@ -65,10 +72,12 @@ class Advertise(dbus.service.Object):
         self.ad_manager = dbus.Interface(adapter, 'org.bluez.LEAdvertisingManager1')
 
         def on_success():
-            print("✅ Advertising started")
+
+            print("Advertising started")
 
         def on_error(error):
-            print(f"❌ Failed to advertise: {error}")
+
+            print(f"Failed to advertise: {error}")
 
         self.ad_manager.RegisterAdvertisement(self.get_path(), {},
                                               reply_handler=on_success,
@@ -81,12 +90,13 @@ class Advertise(dbus.service.Object):
             self.stop()
 
     def stop(self):
+        
         if hasattr(self, 'ad_manager') and self.ad_manager:
             try:
                 self.ad_manager.UnregisterAdvertisement(self)
-                print("🛑 Advertising stopped")
+                print("Advertising stopped")
             except Exception:
-                print("⚠️ Could not unregister advertisement")
+                print("Could not unregister advertisement")
 
         self.remove_from_connection()
 
