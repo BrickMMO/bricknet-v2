@@ -33,7 +33,7 @@ Insert your SD card into your Pi and open up the Terminal:
 1. Run `ssh robot@alpha.local`.
 2. Login using the password `maker`.
 
-> ![NOTE]
+> ![NOTE]  
 > You may need to reset the connection using this command:
 > `ssh-keygen -R alpha.local`
 
