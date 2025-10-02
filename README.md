@@ -2,6 +2,15 @@
 
 BrickNet is a Python library to simplify BlueTooth communication between a [Dexter BrickPi](https://www.dexterindustries.com/brickpi/), [LEGO&reg; Spike](https://www.lego.com/en-ca/product/lego-education-spike-prime-set-45678), and [LEGO&reg; EV3&trade;](https://www.lego.com/en-ca/product/lego-mindstorms-ev3-31313). 
 
+## Turn on Bluetooth
+
+Run these commands:
+
+```
+sudo rfkill unblock bluetooth
+sudo hciconfig hci0 up
+```
+
 ## Install Raspberry Pi OS
 
 The BrickPi version we has uses Raspberry Pi 3 Model B Rev 1.2. 
