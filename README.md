@@ -7,10 +7,10 @@ BrickNet is a Python library to simplify BlueTooth communication between a [Dext
 The BrickPi version we has uses Raspberry Pi 3 Model B Rev 1.2. 
 
 1. Download Raspberry [Pi Imageer](https://www.raspberrypi.com/software/).
-2. Install **Raspberry Pi OS Lite 32-bit**. Use thesse settings:
+2. Install **Raspberry Pi OS 32-bit**. Use thesse settings:
 
     - Raspbery Pi Device: Raspberry Pi 3
-    - Operating System: Raspberry Pi OS Lite (32-Bit)
+    - Operating System: Raspberry Pi OS (32-Bit)
     - Storage: Your SD Card
   
 3. Click **Next** and then **Edit Settings**.
