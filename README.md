@@ -26,6 +26,24 @@ The BrickPi version we has uses Raspberry Pi 3 Model B Rev 1.2.
 
 5. Click **Start**.
 
+## COnnect to Your Pi
+
+Insert your SD card into your Pi and open up the Terminal:
+
+1. Run `ssh robot@alpha.local`.
+2. Login using the password `maker`.
+
+> ![NOTE]
+> You may need to reset the connection using this command:
+> `ssh-keygen -R alpha.local`
+
+## Test Python Code
+
+Open up Visual Studio Code and your project files and then connect to your Pi and test your code:
+
+1. Push **Ctrl**, **Shift**, **p**.
+2. Type **ssh** and choose **Remote-SSH: Connect Current Window to Host...**
+
 ---
 
 ## Project Stack
