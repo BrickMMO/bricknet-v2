@@ -26,7 +26,7 @@ The BrickPi version we has uses Raspberry Pi 3 Model B Rev 1.2.
 
 5. Click **Start**.
 
-## COnnect to Your Pi
+## Connect to Your Pi
 
 Insert your SD card into your Pi and open up the Terminal:
 
